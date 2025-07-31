@@ -99,3 +99,47 @@ body {
 .tab-content.active {
   display: block;
 }
+
+/* بهبودهای رسپانسیو اضافی */
+@media (max-width: 640px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .mobile-scroll {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  
+  .mobile-scroll::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .card-hover:hover {
+    transform: none;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* بهبود تعامل لمسی */
+@media (hover: none) and (pointer: coarse) {
+  .card-hover {
+    transition: none;
+  }
+  
+  .card-hover:hover {
+    transform: none;
+  }
+  
+  .card-hover:active {
+    transform: scale(0.98);
+  }
+}
