@@ -366,12 +366,12 @@
             <div></div>
           </div>
           
-          <div class="flex flex-wrap gap-2 mb-6">
-            <button class="tab-button px-4 py-2 rounded-xl text-sm sm:text-base active" data-subtab="warehouses">انبارها</button>
-            <button class="tab-button px-4 py-2 rounded-xl text-sm sm:text-base bg-gray-100 text-gray-600" data-subtab="inventory">موجودی</button>
-            <button class="tab-button px-4 py-2 rounded-xl text-sm sm:text-base bg-gray-100 text-gray-600" data-subtab="cartons">کارتن‌ها</button>
-            <button class="tab-button px-4 py-2 rounded-xl text-sm sm:text-base bg-gray-100 text-gray-600" data-subtab="operations">عملیات</button>
-            <button class="tab-button px-4 py-2 rounded-xl text-sm sm:text-base bg-gray-100 text-gray-600" data-subtab="reports">گزارش‌ها</button>
+          <div class="flex flex-wrap gap-1 sm:gap-2 mb-4 sm:mb-6 overflow-x-auto pb-2">
+            <button class="tab-button px-2 sm:px-3 md:px-4 py-2 rounded-xl text-xs sm:text-sm md:text-base active whitespace-nowrap" data-subtab="warehouses">📦 انبارها</button>
+            <button class="tab-button px-2 sm:px-3 md:px-4 py-2 rounded-xl text-xs sm:text-sm md:text-base bg-gray-100 text-gray-600 whitespace-nowrap" data-subtab="inventory">📋 موجودی</button>
+            <button class="tab-button px-2 sm:px-3 md:px-4 py-2 rounded-xl text-xs sm:text-sm md:text-base bg-gray-100 text-gray-600 whitespace-nowrap" data-subtab="cartons">📦 کارتن‌ها</button>
+            <button class="tab-button px-2 sm:px-3 md:px-4 py-2 rounded-xl text-xs sm:text-sm md:text-base bg-gray-100 text-gray-600 whitespace-nowrap" data-subtab="operations">⚙️ عملیات</button>
+            <button class="tab-button px-2 sm:px-3 md:px-4 py-2 rounded-xl text-xs sm:text-sm md:text-base bg-gray-100 text-gray-600 whitespace-nowrap" data-subtab="reports">📊 گزارش‌ها</button>
           </div>
 
           <section id="warehouses-subtab" class="subtab-content fade-in">
@@ -610,30 +610,30 @@
 
         <!-- Production Tab Content -->
         <div id="production-tab" class="tab-content">
-          <div class="mb-6 flex flex-wrap gap-2">
-            <button class="tab-button px-4 py-2 rounded-xl text-sm sm:text-base active" data-prodsubtab="define-process">تعریف فرآیند تولید</button>
-            <button class="tab-button px-4 py-2 rounded-xl text-sm sm:text-base bg-gray-100 text-gray-600" data-prodsubtab="do-process">ثبت و انجام تولید</button>
+          <div class="mb-4 sm:mb-6 flex flex-wrap gap-2">
+            <button class="tab-button px-3 sm:px-4 py-2 rounded-xl text-sm sm:text-base active" data-prodsubtab="define-process">📋 تعریف فرآیند</button>
+            <button class="tab-button px-3 sm:px-4 py-2 rounded-xl text-sm sm:text-base bg-gray-100 text-gray-600" data-prodsubtab="do-process">✅ ثبت تولید</button>
           </div>
           <section id="define-process-prodsubtab" class="prodsubtab-content fade-in">
-            <div class="bg-white rounded-2xl shadow-lg p-4 md:p-6 lg:p-8 card-hover border border-gray-100 mb-8">
-              <h2 class="text-xl lg:text-2xl font-semibold text-gray-800 mb-6 border-b pb-4">➕ تعریف فرآیند تولید جدید</h2>
-              <form class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6 mb-6">
+            <div class="bg-white rounded-2xl shadow-lg p-3 sm:p-4 md:p-6 card-hover border border-gray-100 mb-6 sm:mb-8">
+              <h2 class="text-lg sm:text-xl lg:text-2xl font-semibold text-gray-800 mb-4 sm:mb-6 border-b pb-3 sm:pb-4">➕ تعریف فرآیند تولید جدید</h2>
+              <form class="grid grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-4 lg:gap-6 mb-4 sm:mb-6">
                 <div>
-                  <label class="block text-base font-medium text-gray-700 mb-2">نام فرآیند</label>
-                  <input type="text" class="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-base focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="مثلاً: تولید شیر کم‌چرب">
+                  <label class="block text-sm sm:text-base font-medium text-gray-700 mb-2">نام فرآیند</label>
+                  <input type="text" class="w-full bg-gray-50 border border-gray-200 rounded-lg px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="مثلاً: تولید شیر کم‌چرب">
                 </div>
                 <div>
-                  <label class="block text-base font-medium text-gray-700 mb-2">محصول نهایی</label>
-                  <input type="text" class="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-base focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="مثلاً: شیر کم‌چرب">
+                  <label class="block text-sm sm:text-base font-medium text-gray-700 mb-2">محصول نهایی</label>
+                  <input type="text" class="w-full bg-gray-50 border border-gray-200 rounded-lg px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="مثلاً: شیر کم‌چرب">
                 </div>
                 <div class="lg:col-span-2">
-                  <label class="block text-base font-medium text-gray-700 mb-2">مواد اولیه مورد نیاز</label>
-                  <div id="materials-container" class="space-y-3">
-                    <div class="material-item flex flex-col sm:flex-row gap-3 items-end">
+                  <label class="block text-sm sm:text-base font-medium text-gray-700 mb-2">مواد اولیه مورد نیاز</label>
+                  <div id="materials-container" class="space-y-2 sm:space-y-3">
+                    <div class="material-item flex flex-col sm:flex-row gap-2 sm:gap-3 items-end">
                       <div class="flex-1 w-full">
-                        <label class="block text-sm font-medium text-gray-600 mb-1">نام ماده</label>
+                        <label class="block text-xs sm:text-sm font-medium text-gray-600 mb-1">نام ماده</label>
                         <div class="relative">
-                          <input type="text" class="material-name w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-base focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="جستجو و انتخاب ماده..." list="materials-list">
+                          <input type="text" class="material-name w-full bg-gray-50 border border-gray-200 rounded-lg px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="جستجو و انتخاب ماده..." list="materials-list">
                           <datalist id="materials-list">
                             <option value="شیر خام">شیر خام</option>
                             <option value="بطری">بطری</option>
@@ -654,20 +654,20 @@
                         </div>
                       </div>
                       <div class="flex-1 w-full">
-                        <label class="block text-sm font-medium text-gray-600 mb-1">مقدار</label>
-                        <input type="text" class="material-quantity w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-base focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="مثلاً: 100 لیتر">
+                        <label class="block text-xs sm:text-sm font-medium text-gray-600 mb-1">مقدار</label>
+                        <input type="text" class="material-quantity w-full bg-gray-50 border border-gray-200 rounded-lg px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="مثلاً: 100 لیتر">
                       </div>
                     </div>
                   </div>
-                  <button type="button" id="add-material" class="mt-3 w-full sm:w-auto bg-blue-100 hover:bg-blue-200 text-blue-700 font-medium py-3 px-4 rounded-lg transition-colors flex items-center justify-center gap-2">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <button type="button" id="add-material" class="mt-2 sm:mt-3 w-full sm:w-auto bg-blue-100 hover:bg-blue-200 text-blue-700 font-medium py-2 sm:py-3 px-3 sm:px-4 rounded-lg transition-colors flex items-center justify-center gap-2 text-sm sm:text-base">
+                    <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
                     </svg>
                     افزودن ماده جدید
                   </button>
                 </div>  
                 <div class="lg:col-span-2 flex justify-center lg:justify-end">
-                  <button type="button" class="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition-all">ذخیره فرآیند</button>
+                  <button type="button" class="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 sm:py-3 px-4 sm:px-6 rounded-lg transition-all text-sm sm:text-base">ذخیره فرآیند</button>
                 </div>
               </form>
               <h3 class="text-lg font-semibold text-gray-700 mb-4">لیست فرآیندهای تعریف‌شده</h3>
@@ -710,59 +710,77 @@
             </div>
           </section>
           <section id="do-process-prodsubtab" class="prodsubtab-content fade-in" style="display:none;">
-            <div class="bg-white rounded-2xl shadow-lg p-4 md:p-6 lg:p-8 card-hover border border-gray-100">
-              <h2 class="text-xl lg:text-2xl font-semibold text-gray-800 mb-6 border-b pb-4">📝 ثبت و انجام فرآیند تولید</h2>
-              <form class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6 mb-8">
+            <div class="bg-white rounded-2xl shadow-lg p-3 sm:p-4 md:p-6 card-hover border border-gray-100">
+              <h2 class="text-lg sm:text-xl lg:text-2xl font-semibold text-gray-800 mb-4 sm:mb-6 border-b pb-3 sm:pb-4">📝 ثبت و انجام فرآیند تولید</h2>
+              <form class="grid grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-4 lg:gap-6 mb-6 sm:mb-8">
                 <div>
-                  <label class="block text-base font-medium text-gray-700 mb-2">انتخاب فرآیند</label>
-                  <select class="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-base focus:outline-none focus:ring-2 focus:ring-blue-500">
+                  <label class="block text-sm sm:text-base font-medium text-gray-700 mb-2">انتخاب فرآیند</label>
+                  <select class="w-full bg-gray-50 border border-gray-200 rounded-lg px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-blue-500">
                     <option>تولید شیر کم‌چرب</option>
                   </select>
                 </div>
                 <div>
-                  <label class="block text-base font-medium text-gray-700 mb-2">تعداد تولید</label>
-                  <input type="number" class="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-base focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="مثلاً: 100">
+                  <label class="block text-sm sm:text-base font-medium text-gray-700 mb-2">تعداد تولید</label>
+                  <input type="number" class="w-full bg-gray-50 border border-gray-200 rounded-lg px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="مثلاً: 100">
                 </div>
                 <div class="md:col-span-2">
-                  <label class="block text-base font-medium text-gray-700 mb-2">انبار مقصد</label>
-                  <input type="text" class="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-base focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="مثلاً: انبار مرکزی">
+                  <label class="block text-sm sm:text-base font-medium text-gray-700 mb-2">انبار مقصد</label>
+                  <input type="text" class="w-full bg-gray-50 border border-gray-200 rounded-lg px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="مثلاً: انبار مرکزی">
                 </div>
                 <div class="md:col-span-2">
-                  <label class="block text-base font-medium text-gray-700 mb-2">مسئول تولید</label>
-                  <input type="text" class="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-base focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="نام مسئول">
+                  <label class="block text-sm sm:text-base font-medium text-gray-700 mb-2">مسئول تولید</label>
+                  <input type="text" class="w-full bg-gray-50 border border-gray-200 rounded-lg px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="نام مسئول">
                 </div>
                 <div class="md:col-span-2">
-                  <label class="block text-base font-medium text-gray-700 mb-2">یادداشت</label>
-                  <textarea class="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-base focus:outline-none focus:ring-2 focus:ring-blue-500" rows="2" placeholder="یادداشت ..."></textarea>
+                  <label class="block text-sm sm:text-base font-medium text-gray-700 mb-2">یادداشت</label>
+                  <textarea class="w-full bg-gray-50 border border-gray-200 rounded-lg px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-blue-500" rows="2" placeholder="یادداشت ..."></textarea>
                 </div>
                 <div class="md:col-span-2 flex justify-end">
-                  <button type="button" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-6 rounded-lg transition-all">ثبت تولید</button>
+                  <button type="button" class="w-full sm:w-auto bg-green-600 hover:bg-green-700 text-white font-bold py-2 sm:py-3 px-4 sm:px-6 rounded-lg transition-all text-sm sm:text-base">ثبت تولید</button>
                 </div>
               </form>
-              <h3 class="text-lg font-semibold text-gray-700 mb-4">آخرین تولیدات ثبت‌شده</h3>
-              <div class="overflow-x-auto">
-                <table class="min-w-full bg-white rounded-lg border">
-                  <thead>
-                    <tr class="bg-gray-50 text-gray-700 text-sm">
-                      <th class="py-2 px-4">تاریخ</th>
-                      <th class="py-2 px-4">محصول</th>
-                      <th class="py-2 px-4">تعداد</th>
-                      <th class="py-2 px-4">مسئول</th>
-                      <th class="py-2 px-4">انبار مقصد</th>
-                      <th class="py-2 px-4">یادداشت</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td class="py-2 px-4">1403/02/01</td>
-                      <td class="py-2 px-4">شیر کم‌چرب</td>
-                      <td class="py-2 px-4">100</td>
-                      <td class="py-2 px-4">علی رضایی</td>
-                      <td class="py-2 px-4">انبار مرکزی</td>
-                      <td class="py-2 px-4">---</td>
-                    </tr>
-                  </tbody>
-                </table>
+              <h3 class="text-base sm:text-lg font-semibold text-gray-700 mb-3 sm:mb-4">آخرین تولیدات ثبت‌شده</h3>
+              <!-- Mobile First Table -->
+              <div class="space-y-3">
+                <!-- Header only for desktop -->
+                <div class="hidden lg:grid grid-cols-6 gap-4 px-4 py-3 bg-gray-50 text-gray-700 font-semibold rounded-lg text-sm">
+                  <div>تاریخ</div>
+                  <div>محصول</div>
+                  <div>تعداد</div>
+                  <div>مسئول</div>
+                  <div>انبار مقصد</div>
+                  <div>یادداشت</div>
+                </div>
+                
+                <!-- Production items - Mobile First Design -->
+                <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                  <div class="p-3 sm:p-4 lg:grid lg:grid-cols-6 lg:gap-4 lg:items-center lg:py-3">
+                    <div class="mb-2 sm:mb-3 lg:mb-0">
+                      <span class="text-xs text-gray-500 uppercase tracking-wider lg:hidden">تاریخ</span>
+                      <div class="font-medium text-gray-900 text-sm sm:text-base">۱۴۰۳/۰۲/۰۱</div>
+                    </div>
+                    <div class="mb-2 sm:mb-3 lg:mb-0">
+                      <span class="text-xs text-gray-500 uppercase tracking-wider lg:hidden">محصول</span>
+                      <div class="text-gray-700 text-sm sm:text-base">شیر کم‌چرب</div>
+                    </div>
+                    <div class="mb-2 sm:mb-3 lg:mb-0">
+                      <span class="text-xs text-gray-500 uppercase tracking-wider lg:hidden">تعداد</span>
+                      <div class="font-semibold text-gray-900 text-sm sm:text-base">۱۰۰ بطری</div>
+                    </div>
+                    <div class="mb-2 sm:mb-3 lg:mb-0">
+                      <span class="text-xs text-gray-500 uppercase tracking-wider lg:hidden">مسئول</span>
+                      <div class="text-gray-700 text-sm sm:text-base">علی رضایی</div>
+                    </div>
+                    <div class="mb-2 sm:mb-3 lg:mb-0">
+                      <span class="text-xs text-gray-500 uppercase tracking-wider lg:hidden">انبار مقصد</span>
+                      <div class="text-gray-700 text-sm sm:text-base">انبار مرکزی</div>
+                    </div>
+                    <div>
+                      <span class="text-xs text-gray-500 uppercase tracking-wider lg:hidden">یادداشت</span>
+                      <div class="text-gray-500 text-sm">---</div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </section>
@@ -770,32 +788,32 @@
 
         <!-- Reports Tab Content -->
         <div id="reports-tab" class="tab-content">
-          <div class="mb-6 flex flex-wrap gap-2">
-            <button class="tab-button px-4 py-2 rounded-xl text-sm sm:text-base active" data-reportsubtab="productions">📊 گزارش تولیدات</button>
-            <button class="tab-button px-4 py-2 rounded-xl text-sm sm:text-base bg-gray-100 text-gray-600" data-reportsubtab="materials">🏭 مصرف مواد اولیه</button>
-            <button class="tab-button px-4 py-2 rounded-xl text-sm sm:text-base bg-gray-100 text-gray-600" data-reportsubtab="inventory">📦 موجودی انبار</button>
-            <button class="tab-button px-4 py-2 rounded-xl text-sm sm:text-base bg-gray-100 text-gray-600" data-reportsubtab="transfers">🔄 انتقال بین انبارها</button>
-            <button class="tab-button px-4 py-2 rounded-xl text-sm sm:text-base bg-gray-100 text-gray-600" data-reportsubtab="search">🔍 جستجوی پیشرفته</button>
-            <button class="tab-button px-4 py-2 rounded-xl text-sm sm:text-base bg-gray-100 text-gray-600" data-reportsubtab="statistics">📈 گزارش آماری</button>
+          <div class="mb-4 sm:mb-6 flex flex-wrap gap-1 sm:gap-2 overflow-x-auto pb-2">
+            <button class="tab-button px-2 sm:px-3 md:px-4 py-2 rounded-xl text-xs sm:text-sm md:text-base active whitespace-nowrap" data-reportsubtab="productions">📊 گزارش تولیدات</button>
+            <button class="tab-button px-2 sm:px-3 md:px-4 py-2 rounded-xl text-xs sm:text-sm md:text-base bg-gray-100 text-gray-600 whitespace-nowrap" data-reportsubtab="materials">🏭 مصرف مواد</button>
+            <button class="tab-button px-2 sm:px-3 md:px-4 py-2 rounded-xl text-xs sm:text-sm md:text-base bg-gray-100 text-gray-600 whitespace-nowrap" data-reportsubtab="inventory">📦 موجودی</button>
+            <button class="tab-button px-2 sm:px-3 md:px-4 py-2 rounded-xl text-xs sm:text-sm md:text-base bg-gray-100 text-gray-600 whitespace-nowrap" data-reportsubtab="transfers">🔄 انتقال</button>
+            <button class="tab-button px-2 sm:px-3 md:px-4 py-2 rounded-xl text-xs sm:text-sm md:text-base bg-gray-100 text-gray-600 whitespace-nowrap" data-reportsubtab="search">🔍 جستجو</button>
+            <button class="tab-button px-2 sm:px-3 md:px-4 py-2 rounded-xl text-xs sm:text-sm md:text-base bg-gray-100 text-gray-600 whitespace-nowrap" data-reportsubtab="statistics">📈 آمار</button>
           </div>
 
           <!-- گزارش تولیدات -->
           <section id="productions-reportsubtab" class="reportsubtab-content fade-in">
-            <div class="bg-white rounded-2xl shadow-lg p-4 md:p-6 border border-gray-100 mb-6">
-              <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-6">
-                <h2 class="text-xl lg:text-2xl font-semibold text-gray-800 mb-4 lg:mb-0">📊 گزارش تولیدات</h2>
-                <div class="flex flex-wrap gap-2">
-                  <button class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg text-sm transition-colors flex items-center gap-2">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3M3 17V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2z"></path></svg>
-                    Excel
+            <div class="bg-white rounded-2xl shadow-lg p-3 sm:p-4 md:p-6 border border-gray-100 mb-4 sm:mb-6">
+              <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-4 sm:mb-6">
+                <h2 class="text-lg sm:text-xl lg:text-2xl font-semibold text-gray-800 mb-3 sm:mb-4 lg:mb-0">📊 گزارش تولیدات</h2>
+                <div class="flex flex-wrap gap-1 sm:gap-2">
+                  <button class="bg-green-600 hover:bg-green-700 text-white px-2 sm:px-3 md:px-4 py-2 rounded-lg text-xs sm:text-sm transition-colors flex items-center gap-1 sm:gap-2">
+                    <svg class="w-3 h-3 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3M3 17V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2z"></path></svg>
+                    <span class="hidden sm:inline">Excel</span>
                   </button>
-                  <button class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg text-sm transition-colors flex items-center gap-2">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
-                    PDF
+                  <button class="bg-red-600 hover:bg-red-700 text-white px-2 sm:px-3 md:px-4 py-2 rounded-lg text-xs sm:text-sm transition-colors flex items-center gap-1 sm:gap-2">
+                    <svg class="w-3 h-3 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+                    <span class="hidden sm:inline">PDF</span>
                   </button>
-                  <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm transition-colors flex items-center gap-2">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V9a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
-                    چاپ
+                  <button class="bg-blue-600 hover:bg-blue-700 text-white px-2 sm:px-3 md:px-4 py-2 rounded-lg text-xs sm:text-sm transition-colors flex items-center gap-1 sm:gap-2">
+                    <svg class="w-3 h-3 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V9a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+                    <span class="hidden sm:inline">چاپ</span>
                   </button>
                 </div>
               </div>
@@ -1304,18 +1322,18 @@
               </div>
               
               <!-- فیلترها -->
-              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-6 p-4 bg-gray-50 rounded-xl">
+              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3 lg:gap-4 mb-4 sm:mb-6 p-3 sm:p-4 bg-gray-50 rounded-xl">
                 <div>
-                  <label class="block text-sm font-medium text-gray-700 mb-2">از تاریخ</label>
-                  <input type="date" class="w-full bg-white border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                  <label class="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-2">از تاریخ</label>
+                  <input type="date" class="w-full bg-white border border-gray-200 rounded-lg px-2 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
                 </div>
                 <div>
-                  <label class="block text-sm font-medium text-gray-700 mb-2">تا تاریخ</label>
-                  <input type="date" class="w-full bg-white border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                  <label class="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-2">تا تاریخ</label>
+                  <input type="date" class="w-full bg-white border border-gray-200 rounded-lg px-2 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
                 </div>
                 <div>
-                  <label class="block text-sm font-medium text-gray-700 mb-2">محصول</label>
-                  <select class="w-full bg-white border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                  <label class="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-2">محصول</label>
+                  <select class="w-full bg-white border border-gray-200 rounded-lg px-2 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
                     <option value="">همه محصولات</option>
                     <option>شیر کم‌چرب</option>
                     <option>آب معدنی</option>
@@ -1323,8 +1341,8 @@
                   </select>
                 </div>
                 <div>
-                  <label class="block text-sm font-medium text-gray-700 mb-2">جستجو</label>
-                  <input type="text" placeholder="جستجو در یادداشت..." class="w-full bg-white border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                  <label class="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-2">جستجو</label>
+                  <input type="text" placeholder="جستجو در یادداشت..." class="w-full bg-white border border-gray-200 rounded-lg px-2 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
                 </div>
               </div>
 

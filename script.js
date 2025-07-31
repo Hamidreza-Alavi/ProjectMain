@@ -273,25 +273,25 @@ document.addEventListener('DOMContentLoaded', () => {
     // Add new material row
     addMaterialBtn.addEventListener('click', () => {
       const materialItem = document.createElement('div');
-      materialItem.className = 'material-item flex flex-col sm:flex-row gap-3 items-end';
+      materialItem.className = 'material-item flex flex-col sm:flex-row gap-2 sm:gap-3 items-end';
       materialItem.innerHTML = `
         <div class="flex-1 w-full">
-          <label class="block text-sm font-medium text-gray-600 mb-1">نام ماده</label>
+          <label class="block text-xs sm:text-sm font-medium text-gray-600 mb-1">نام ماده</label>
           <div class="relative">
-            <input type="text" class="material-name w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-base focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="جستجو و انتخاب ماده..." list="materials-list">
+            <input type="text" class="material-name w-full bg-gray-50 border border-gray-200 rounded-lg px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="جستجو و انتخاب ماده..." list="materials-list">
             <div class="absolute left-3 top-1/2 transform -translate-y-1/2">
-              <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-3 h-3 sm:w-4 sm:h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
               </svg>
             </div>
           </div>
         </div>
         <div class="flex-1 w-full">
-          <label class="block text-sm font-medium text-gray-600 mb-1">مقدار</label>
-          <input type="text" class="material-quantity w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-base focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="مثلاً: 100 لیتر">
+          <label class="block text-xs sm:text-sm font-medium text-gray-600 mb-1">مقدار</label>
+          <input type="text" class="material-quantity w-full bg-gray-50 border border-gray-200 rounded-lg px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="مثلاً: 100 لیتر">
         </div>
-        <button type="button" class="remove-material bg-red-500 hover:bg-red-600 text-white p-3 rounded-lg transition-colors" title="حذف ماده">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <button type="button" class="remove-material bg-red-500 hover:bg-red-600 text-white p-2 sm:p-3 rounded-lg transition-colors" title="حذف ماده">
+          <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
           </svg>
         </button>
@@ -342,4 +342,35 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
   });
+
+  // Add responsive behavior for tab buttons on mobile
+  function handleTabResponsiveness() {
+    const tabContainers = document.querySelectorAll('.mb-4, .mb-6');
+    tabContainers.forEach(container => {
+      if (container.querySelector('.tab-button')) {
+        const buttons = container.querySelectorAll('.tab-button');
+        if (window.innerWidth < 640) {
+          // On mobile, ensure buttons wrap properly
+          container.style.overflowX = 'auto';
+          container.style.whiteSpace = 'nowrap';
+          buttons.forEach(btn => {
+            btn.style.flexShrink = '0';
+          });
+        } else {
+          // On larger screens, reset styles
+          container.style.overflowX = '';
+          container.style.whiteSpace = '';
+          buttons.forEach(btn => {
+            btn.style.flexShrink = '';
+          });
+        }
+      }
+    });
+  }
+
+  // Initial responsive setup
+  handleTabResponsiveness();
+
+  // Handle window resize
+  window.addEventListener('resize', handleTabResponsiveness);
 });
