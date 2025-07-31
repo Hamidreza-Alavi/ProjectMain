@@ -564,6 +564,509 @@
           </section>
         </div>
 
+        <!-- Reports Tab Content -->
+        <div id="reports-tab" class="tab-content">
+          <div class="mb-6 flex flex-wrap gap-2">
+            <button class="tab-button px-4 py-2 rounded-xl text-sm sm:text-base active" data-reportsubtab="productions">📊 گزارش تولیدات</button>
+            <button class="tab-button px-4 py-2 rounded-xl text-sm sm:text-base bg-gray-100 text-gray-600" data-reportsubtab="materials">🏭 مصرف مواد اولیه</button>
+            <button class="tab-button px-4 py-2 rounded-xl text-sm sm:text-base bg-gray-100 text-gray-600" data-reportsubtab="inventory">📦 موجودی انبار</button>
+            <button class="tab-button px-4 py-2 rounded-xl text-sm sm:text-base bg-gray-100 text-gray-600" data-reportsubtab="transfers">🔄 انتقال بین انبارها</button>
+            <button class="tab-button px-4 py-2 rounded-xl text-sm sm:text-base bg-gray-100 text-gray-600" data-reportsubtab="search">🔍 جستجوی پیشرفته</button>
+            <button class="tab-button px-4 py-2 rounded-xl text-sm sm:text-base bg-gray-100 text-gray-600" data-reportsubtab="statistics">📈 گزارش آماری</button>
+          </div>
+
+          <!-- گزارش تولیدات -->
+          <section id="productions-reportsubtab" class="reportsubtab-content fade-in">
+            <div class="bg-white rounded-2xl shadow-lg p-4 md:p-6 border border-gray-100 mb-6">
+              <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-6">
+                <h2 class="text-xl lg:text-2xl font-semibold text-gray-800 mb-4 lg:mb-0">📊 گزارش تولیدات</h2>
+                <div class="flex flex-wrap gap-2">
+                  <button class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg text-sm transition-colors flex items-center gap-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3M3 17V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2z"></path></svg>
+                    Excel
+                  </button>
+                  <button class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg text-sm transition-colors flex items-center gap-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+                    PDF
+                  </button>
+                  <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm transition-colors flex items-center gap-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V9a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+                    چاپ
+                  </button>
+                </div>
+              </div>
+              
+              <!-- فیلترها -->
+              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6 p-4 bg-gray-50 rounded-xl">
+                <div>
+                  <label class="block text-sm font-medium text-gray-700 mb-2">از تاریخ</label>
+                  <input type="date" class="w-full bg-white border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-700 mb-2">تا تاریخ</label>
+                  <input type="date" class="w-full bg-white border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-700 mb-2">محصول</label>
+                  <select class="w-full bg-white border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <option value="">همه محصولات</option>
+                    <option>شیر کم‌چرب</option>
+                    <option>آب معدنی</option>
+                    <option>نوشابه</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-700 mb-2">جستجو</label>
+                  <input type="text" placeholder="جستجو در یادداشت..." class="w-full bg-white border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+              </div>
+
+              <!-- جدول -->
+              <div class="overflow-x-auto">
+                <table class="min-w-full bg-white">
+                  <thead>
+                    <tr class="bg-gray-50 border-b">
+                      <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">تاریخ تولید</th>
+                      <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">محصول نهایی</th>
+                      <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">تعداد</th>
+                      <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">مسئول</th>
+                      <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">انبار مقصد</th>
+                      <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">یادداشت</th>
+                    </tr>
+                  </thead>
+                  <tbody class="bg-white divide-y divide-gray-200">
+                    <tr class="hover:bg-gray-50">
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">۱۴۰۳/۰۸/۱۵</td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">شیر کم‌چرب</td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">۲۰۰ بطری</td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">علی رضایی</td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">انبار مرکزی</td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">تولید عادی</td>
+                    </tr>
+                    <tr class="hover:bg-gray-50">
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">۱۴۰۳/۰۸/۱۴</td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">آب معدنی</td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">۵۰۰ بطری</td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">سارا احمدی</td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">انبار جنوب</td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">سفارش فوری</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+
+          <!-- گزارش مصرف مواد اولیه -->
+          <section id="materials-reportsubtab" class="reportsubtab-content fade-in" style="display:none;">
+            <div class="bg-white rounded-2xl shadow-lg p-4 md:p-6 border border-gray-100 mb-6">
+              <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-6">
+                <h2 class="text-xl lg:text-2xl font-semibold text-gray-800 mb-4 lg:mb-0">🏭 گزارش مصرف مواد اولیه</h2>
+                <div class="flex items-center gap-2">
+                  <span class="bg-red-100 text-red-800 text-xs px-2 py-1 rounded-full">⚠️ هشدار مصرف بالا</span>
+                </div>
+              </div>
+              
+              <!-- فیلترها -->
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6 p-4 bg-gray-50 rounded-xl">
+                <div>
+                  <label class="block text-sm font-medium text-gray-700 mb-2">بازه زمانی</label>
+                  <select class="w-full bg-white border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <option>هفته گذشته</option>
+                    <option>ماه گذشته</option>
+                    <option>سه ماه گذشته</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-700 mb-2">ماده اولیه</label>
+                  <select class="w-full bg-white border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <option value="">همه مواد</option>
+                    <option>شیر خام</option>
+                    <option>بطری</option>
+                    <option>درپوش</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-700 mb-2">محصول نهایی</label>
+                  <select class="w-full bg-white border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <option value="">همه محصولات</option>
+                    <option>شیر کم‌چرب</option>
+                    <option>آب معدنی</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- جدول -->
+              <div class="overflow-x-auto">
+                <table class="min-w-full bg-white">
+                  <thead>
+                    <tr class="bg-gray-50 border-b">
+                      <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">تاریخ</th>
+                      <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">ماده اولیه</th>
+                      <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">مقدار مصرف</th>
+                      <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">محصول نهایی</th>
+                      <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">انبار مبدا</th>
+                      <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">مسئول ثبت</th>
+                      <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">وضعیت</th>
+                    </tr>
+                  </thead>
+                  <tbody class="bg-white divide-y divide-gray-200">
+                    <tr class="hover:bg-gray-50">
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">۱۴۰۳/۰۸/۱۵</td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">شیر خام</td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">۲۰۰ لیتر</td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">شیر کم‌چرب</td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">انبار اصلی</td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">علی رضایی</td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">عادی</span>
+                      </td>
+                    </tr>
+                    <tr class="hover:bg-gray-50 bg-red-50">
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">۱۴۰۳/۰۸/۱۴</td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">بطری</td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">۸۰۰ عدد</td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">آب معدنی</td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">انبار بسته‌بندی</td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">سارا احمدی</td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="bg-red-100 text-red-800 text-xs px-2 py-1 rounded-full">⚠️ مصرف بالا</span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+
+          <!-- گزارش موجودی انبار -->
+          <section id="inventory-reportsubtab" class="reportsubtab-content fade-in" style="display:none;">
+            <div class="bg-white rounded-2xl shadow-lg p-4 md:p-6 border border-gray-100 mb-6">
+              <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-6">
+                <h2 class="text-xl lg:text-2xl font-semibold text-gray-800 mb-4 lg:mb-0">📦 گزارش موجودی انبار</h2>
+                <div class="flex gap-2">
+                  <button class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg text-sm transition-colors">نمودار موجودی</button>
+                  <button class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg text-sm transition-colors">Excel</button>
+                </div>
+              </div>
+              
+              <!-- فیلترها -->
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6 p-4 bg-gray-50 rounded-xl">
+                <div>
+                  <label class="block text-sm font-medium text-gray-700 mb-2">انبار</label>
+                  <select class="w-full bg-white border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <option value="">همه انبارها</option>
+                    <option>انبار مرکزی</option>
+                    <option>انبار جنوب</option>
+                    <option>انبار بسته‌بندی</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-700 mb-2">دسته‌بندی</label>
+                  <select class="w-full bg-white border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <option value="">همه دسته‌ها</option>
+                    <option>مواد اولیه</option>
+                    <option>محصولات نهایی</option>
+                    <option>بسته‌بندی</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- آمار سریع -->
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                <div class="bg-green-50 p-4 rounded-lg border border-green-200">
+                  <h3 class="text-sm font-medium text-green-800">موجودی کافی</h3>
+                  <p class="text-2xl font-bold text-green-600">۱۲۳ کالا</p>
+                </div>
+                <div class="bg-yellow-50 p-4 rounded-lg border border-yellow-200">
+                  <h3 class="text-sm font-medium text-yellow-800">نزدیک به حداقل</h3>
+                  <p class="text-2xl font-bold text-yellow-600">۸ کالا</p>
+                </div>
+                <div class="bg-red-50 p-4 rounded-lg border border-red-200">
+                  <h3 class="text-sm font-medium text-red-800">کمبود شدید</h3>
+                  <p class="text-2xl font-bold text-red-600">۳ کالا</p>
+                </div>
+              </div>
+
+              <!-- جدول -->
+              <div class="overflow-x-auto">
+                <table class="min-w-full bg-white">
+                  <thead>
+                    <tr class="bg-gray-50 border-b">
+                      <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">نام کالا</th>
+                      <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">واحد</th>
+                      <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">موجودی فعلی</th>
+                      <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">حداقل موجودی</th>
+                      <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">وضعیت</th>
+                      <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">انبار</th>
+                    </tr>
+                  </thead>
+                  <tbody class="bg-white divide-y divide-gray-200">
+                    <tr class="hover:bg-gray-50">
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">شیر خام</td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">لیتر</td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">۱,۵۰۰</td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">۵۰۰</td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">کافی</span>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">انبار مرکزی</td>
+                    </tr>
+                    <tr class="hover:bg-gray-50 bg-red-50">
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">بطری ۵۰۰ میلی</td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">عدد</td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">۵۰</td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">۲۰۰</td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="bg-red-100 text-red-800 text-xs px-2 py-1 rounded-full">⚠️ کمبود</span>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">انبار بسته‌بندی</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+
+          <!-- گزارش انتقال بین انبارها -->
+          <section id="transfers-reportsubtab" class="reportsubtab-content fade-in" style="display:none;">
+            <div class="bg-white rounded-2xl shadow-lg p-4 md:p-6 border border-gray-100 mb-6">
+              <h2 class="text-xl lg:text-2xl font-semibold text-gray-800 mb-6">🔄 گزارش انتقال بین انبارها</h2>
+              
+              <!-- فیلترها -->
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6 p-4 bg-gray-50 rounded-xl">
+                <div>
+                  <label class="block text-sm font-medium text-gray-700 mb-2">از تاریخ</label>
+                  <input type="date" class="w-full bg-white border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-700 mb-2">تا تاریخ</label>
+                  <input type="date" class="w-full bg-white border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+              </div>
+
+              <!-- جدول -->
+              <div class="overflow-x-auto">
+                <table class="min-w-full bg-white">
+                  <thead>
+                    <tr class="bg-gray-50 border-b">
+                      <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">تاریخ انتقال</th>
+                      <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">نام کالا</th>
+                      <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">تعداد</th>
+                      <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">از انبار</th>
+                      <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">به انبار</th>
+                      <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">مسئول انتقال</th>
+                      <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">وضعیت</th>
+                    </tr>
+                  </thead>
+                  <tbody class="bg-white divide-y divide-gray-200">
+                    <tr class="hover:bg-gray-50">
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">۱۴۰۳/۰۸/۱۵</td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">شیر کم‌چرب</td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">۱۰۰ بطری</td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">انبار مرکزی</td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">انبار جنوب</td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">محمد حسینی</td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">تکمیل شده</span>
+                      </td>
+                    </tr>
+                    <tr class="hover:bg-gray-50">
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">۱۴۰۳/۰۸/۱۴</td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">بطری خالی</td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">۵۰۰ عدد</td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">انبار بسته‌بندی</td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">انبار مرکزی</td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">فاطمه کریمی</td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded-full">در حال انتقال</span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+
+          <!-- جستجوی پیشرفته -->
+          <section id="search-reportsubtab" class="reportsubtab-content fade-in" style="display:none;">
+            <div class="bg-white rounded-2xl shadow-lg p-4 md:p-6 border border-gray-100 mb-6">
+              <h2 class="text-xl lg:text-2xl font-semibold text-gray-800 mb-6">🔍 جستجوی پیشرفته</h2>
+              
+              <!-- فرم جستجو -->
+              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6 p-4 bg-gray-50 rounded-xl">
+                <div>
+                  <label class="block text-sm font-medium text-gray-700 mb-2">نوع فعالیت</label>
+                  <select class="w-full bg-white border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <option value="">همه فعالیت‌ها</option>
+                    <option value="production">تولید</option>
+                    <option value="consumption">مصرف</option>
+                    <option value="transfer">انتقال</option>
+                    <option value="inventory">موجودی</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-700 mb-2">نام کالا</label>
+                  <input type="text" placeholder="نام کالا یا محصول..." class="w-full bg-white border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-700 mb-2">انبار</label>
+                  <select class="w-full bg-white border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <option value="">همه انبارها</option>
+                    <option>انبار مرکزی</option>
+                    <option>انبار جنوب</option>
+                    <option>انبار بسته‌بندی</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-700 mb-2">از تاریخ</label>
+                  <input type="date" class="w-full bg-white border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-700 mb-2">تا تاریخ</label>
+                  <input type="date" class="w-full bg-white border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+                <div class="flex items-end">
+                  <button class="w-full bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm transition-colors">جستجو</button>
+                </div>
+              </div>
+
+              <!-- فیلترهای ذخیره شده -->
+              <div class="mb-6">
+                <h3 class="text-lg font-medium text-gray-800 mb-3">فیلترهای ذخیره‌شده</h3>
+                <div class="flex flex-wrap gap-2">
+                  <button class="bg-purple-100 hover:bg-purple-200 text-purple-800 px-3 py-1 rounded-full text-sm transition-colors">تولیدات ماه جاری</button>
+                  <button class="bg-green-100 hover:bg-green-200 text-green-800 px-3 py-1 rounded-full text-sm transition-colors">انتقالات فوری</button>
+                  <button class="bg-orange-100 hover:bg-orange-200 text-orange-800 px-3 py-1 rounded-full text-sm transition-colors">موجودی کم</button>
+                  <button class="bg-gray-100 hover:bg-gray-200 text-gray-800 px-3 py-1 rounded-full text-sm transition-colors">+ ذخیره فیلتر جدید</button>
+                </div>
+              </div>
+
+              <!-- نتایج جستجو -->
+              <div class="bg-gray-50 p-4 rounded-lg text-center text-gray-500">
+                <svg class="w-12 h-12 mx-auto mb-2 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                </svg>
+                <p>برای مشاهده نتایج، فیلترهای مورد نظر را انتخاب کرده و روی جستجو کلیک کنید</p>
+              </div>
+            </div>
+          </section>
+
+          <!-- گزارش آماری -->
+          <section id="statistics-reportsubtab" class="reportsubtab-content fade-in" style="display:none;">
+            <div class="space-y-6">
+              <!-- نمودار تولید -->
+              <div class="bg-white rounded-2xl shadow-lg p-4 md:p-6 border border-gray-100">
+                <h3 class="text-lg font-semibold text-gray-800 mb-4">📈 نمودار تولید ماهانه</h3>
+                <div class="h-64 bg-gradient-to-br from-blue-50 to-purple-50 rounded-xl flex items-center justify-center">
+                  <div class="text-center">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full mx-auto mb-4 flex items-center justify-center">
+                      <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                      </svg>
+                    </div>
+                    <p class="text-gray-600">نمودار تولید در حال بارگذاری...</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- آمار کلی -->
+              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="bg-white rounded-xl shadow-md p-6 border border-gray-100">
+                  <div class="flex items-center justify-between mb-4">
+                    <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
+                      <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4"></path>
+                      </svg>
+                    </div>
+                    <span class="text-sm text-green-600 font-medium">+15%</span>
+                  </div>
+                  <h3 class="text-2xl font-bold text-gray-800">۱,۲۳۴</h3>
+                  <p class="text-gray-600 text-sm">کل تولیدات ماهانه</p>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-md p-6 border border-gray-100">
+                  <div class="flex items-center justify-between mb-4">
+                    <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center">
+                      <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
+                      </svg>
+                    </div>
+                    <span class="text-sm text-green-600 font-medium">+8%</span>
+                  </div>
+                  <h3 class="text-2xl font-bold text-gray-800">۵,۶۷۸</h3>
+                  <p class="text-gray-600 text-sm">مصرف مواد اولیه (کیلوگرم)</p>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-md p-6 border border-gray-100">
+                  <div class="flex items-center justify-between mb-4">
+                    <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center">
+                      <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"></path>
+                      </svg>
+                    </div>
+                    <span class="text-sm text-green-600 font-medium">+22%</span>
+                  </div>
+                  <h3 class="text-2xl font-bold text-gray-800">۹۸.۵%</h3>
+                  <p class="text-gray-600 text-sm">راندمان تولید</p>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-md p-6 border border-gray-100">
+                  <div class="flex items-center justify-between mb-4">
+                    <div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center">
+                      <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                      </svg>
+                    </div>
+                    <span class="text-sm text-red-600 font-medium">-5%</span>
+                  </div>
+                  <h3 class="text-2xl font-bold text-gray-800">۳</h3>
+                  <p class="text-gray-600 text-sm">کالاهای بحرانی</p>
+                </div>
+              </div>
+
+              <!-- جداول آماری -->
+              <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div class="bg-white rounded-2xl shadow-lg p-4 md:p-6 border border-gray-100">
+                  <h3 class="text-lg font-semibold text-gray-800 mb-4">🏆 بیشترین محصولات تولیدی</h3>
+                  <div class="space-y-3">
+                    <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                      <span class="font-medium">شیر کم‌چرب</span>
+                      <span class="text-blue-600 font-bold">۴۵۰ بطری</span>
+                    </div>
+                    <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                      <span class="font-medium">آب معدنی</span>
+                      <span class="text-blue-600 font-bold">۳۲۰ بطری</span>
+                    </div>
+                    <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                      <span class="font-medium">نوشابه</span>
+                      <span class="text-blue-600 font-bold">۲۸۰ قوطی</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-lg p-4 md:p-6 border border-gray-100">
+                  <h3 class="text-lg font-semibold text-gray-800 mb-4">⚠️ کالاهای بحرانی</h3>
+                  <div class="space-y-3">
+                    <div class="flex items-center justify-between p-3 bg-red-50 rounded-lg border border-red-200">
+                      <span class="font-medium">بطری ۵۰۰ میلی</span>
+                      <span class="text-red-600 font-bold">۵۰ عدد</span>
+                    </div>
+                    <div class="flex items-center justify-between p-3 bg-yellow-50 rounded-lg border border-yellow-200">
+                      <span class="font-medium">درپوش پلاستیکی</span>
+                      <span class="text-yellow-600 font-bold">۱۲۰ عدد</span>
+                    </div>
+                    <div class="flex items-center justify-between p-3 bg-orange-50 rounded-lg border border-orange-200">
+                      <span class="font-medium">برچسب محصول</span>
+                      <span class="text-orange-600 font-bold">۸۵ عدد</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+
         <!-- AI Chatbot Button -->
         <button
           id="ai-chatbot-btn"
