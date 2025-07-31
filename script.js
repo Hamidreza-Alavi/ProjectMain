@@ -54,7 +54,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     
     // Show selected tab content
-    document.getElementById(`${tabId}-tab`).classList.add('active');
+    const targetTab = document.getElementById(`${tabId}-tab`);
+    if (targetTab) {
+      targetTab.classList.add('active');
+    }
     
     // Update active nav link
     navLinks.forEach(link => {
@@ -66,15 +69,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const titles = {
       'dashboard': 'داشبورد مدیریت تولید',
       'warehouse': 'مدیریت انبار',
-      'production': 'ثبت فرآیند تولید'
+      'production': 'ثبت فرآیند تولید',
+      'reports': 'گزارش‌ها و آمار'
     };
     pageTitle.textContent = titles[tabId] || 'سیستم مدیریت تولید';
+    
+    // Close mobile menu after tab switch
+    closeSidebar();
   }
   
   navLinks.forEach(link => {
     link.addEventListener('click', (e) => {
       e.preventDefault();
-      switchTab(link.dataset.tab);
+      const tabId = link.dataset.tab;
+      if (tabId) {
+        switchTab(tabId);
+      }
     });
   });
   
@@ -225,6 +235,43 @@ document.addEventListener('DOMContentLoaded', () => {
   reportTabButtons.forEach(button => {
     button.addEventListener('click', () => switchReportSubtab(button.dataset.reportsubtab));
   });
+  switchReportSubtab('productions');
+
+  // Reports subtab switching
+  const reportTabButtons = document.querySelectorAll('[data-reportsubtab]');
+  const reportSubtabContents = document.querySelectorAll('.reportsubtab-content');
+  
+  function switchReportSubtab(subtabId) {
+    reportSubtabContents.forEach(content => {
+      content.style.display = 'none';
+    });
+    const targetSubtab = document.getElementById(`${subtabId}-reportsubtab`);
+    if (targetSubtab) {
+      targetSubtab.style.display = 'block';
+    }
+    reportTabButtons.forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.reportsubtab === subtabId);
+      btn.classList.toggle('bg-gray-100', btn.dataset.reportsubtab !== subtabId);
+      btn.classList.toggle('text-gray-600', btn.dataset.reportsubtab !== subtabId);
+      if (btn.dataset.reportsubtab === subtabId) {
+        btn.classList.remove('bg-gray-100');
+        btn.classList.remove('text-gray-600');
+        btn.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+        btn.style.color = 'white';
+        btn.style.boxShadow = '0 4px 12px -2px rgba(99, 102, 241, 0.4)';
+      } else {
+        btn.style.background = '';
+        btn.style.color = '';
+        btn.style.boxShadow = '';
+      }
+    });
+  }
+  
+  reportTabButtons.forEach(button => {
+    button.addEventListener('click', () => switchReportSubtab(button.dataset.reportsubtab));
+  });
+  
+  // Initialize with productions report subtab
   switchReportSubtab('productions');
 
   // Material management functionality
