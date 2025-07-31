@@ -2,7 +2,7 @@
 <html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
   <title>سیستم مدیریت تولید و انبار</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="styles.css">
@@ -376,28 +376,216 @@
 
           <section id="warehouses-subtab" class="subtab-content fade-in">
             <div class="mb-4">
-              <input type="text" placeholder="جستجوی انبار..." class="w-full rounded-xl border border-gray-300 p-3 focus:outline-none focus:ring-2 focus:ring-indigo-600"/>
+              <input type="text" placeholder="جستجوی انبار..." class="w-full rounded-xl border border-gray-300 p-3 text-base focus:outline-none focus:ring-2 focus:ring-indigo-600"/>
             </div>
-            <div class="space-y-4">
-                <div class="hidden md:grid grid-cols-5 gap-4 px-4 py-2 bg-indigo-50 text-indigo-700 font-semibold rounded-lg text-sm"><div>نام انبار</div><div>آدرس</div><div>وضعیت</div><div>تعداد کالا</div><div class="text-left">عملیات</div></div>
-                <div class="bg-white p-4 rounded-lg shadow-sm border grid grid-cols-2 md:grid-cols-5 gap-4 items-center"><div class="col-span-2 md:col-span-1"><span class="md:hidden font-semibold text-gray-600">نام: </span>انبار مرکزی</div><div class="col-span-2 md:col-span-1"><span class="md:hidden font-semibold text-gray-600">آدرس: </span>تهران، خ ولیعصر</div><div class="flex items-center"><span class="status-dot status-good"></span>فعال</div><div><span class="md:hidden font-semibold text-gray-600">تعداد کالا: </span>1200</div><div class="text-left"><button class="text-indigo-600 hover:underline">ویرایش</button></div></div>
-                <div class="bg-white p-4 rounded-lg shadow-sm border grid grid-cols-2 md:grid-cols-5 gap-4 items-center"><div class="col-span-2 md:col-span-1"><span class="md:hidden font-semibold text-gray-600">نام: </span>انبار جنوب</div><div class="col-span-2 md:col-span-1"><span class="md:hidden font-semibold text-gray-600">آدرس: </span>شیراز، بلوار آزادی</div><div class="flex items-center"><span class="status-dot status-warning"></span>هشدار</div><div><span class="md:hidden font-semibold text-gray-600">تعداد کالا: </span>350</div><div class="text-left"><button class="text-indigo-600 hover:underline">ویرایش</button></div></div>
+            <div class="space-y-3">
+                <!-- Header only for desktop -->
+                <div class="hidden lg:grid grid-cols-5 gap-4 px-4 py-3 bg-indigo-50 text-indigo-700 font-semibold rounded-lg text-sm">
+                  <div>نام انبار</div>
+                  <div>آدرس</div>
+                  <div>وضعیت</div>
+                  <div>تعداد کالا</div>
+                  <div class="text-left">عملیات</div>
+                </div>
+                
+                <!-- Warehouse items - Mobile First Design -->
+                <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                  <div class="p-4 lg:grid lg:grid-cols-5 lg:gap-4 lg:items-center lg:py-3">
+                    <div class="mb-3 lg:mb-0">
+                      <span class="text-xs text-gray-500 uppercase tracking-wider lg:hidden">نام انبار</span>
+                      <div class="font-medium text-gray-900">انبار مرکزی</div>
+                    </div>
+                    <div class="mb-3 lg:mb-0">
+                      <span class="text-xs text-gray-500 uppercase tracking-wider lg:hidden">آدرس</span>
+                      <div class="text-gray-700">تهران، خ ولیعصر</div>
+                    </div>
+                    <div class="mb-3 lg:mb-0">
+                      <span class="text-xs text-gray-500 uppercase tracking-wider lg:hidden">وضعیت</span>
+                      <div class="flex items-center">
+                        <span class="status-dot status-good"></span>
+                        <span class="text-green-700 font-medium">فعال</span>
+                      </div>
+                    </div>
+                    <div class="mb-3 lg:mb-0">
+                      <span class="text-xs text-gray-500 uppercase tracking-wider lg:hidden">تعداد کالا</span>
+                      <div class="font-semibold text-gray-900">۱,۲۰۰ کالا</div>
+                    </div>
+                    <div class="lg:text-left">
+                      <button class="w-full lg:w-auto bg-indigo-50 hover:bg-indigo-100 text-indigo-700 px-4 py-2 rounded-lg text-sm font-medium transition-colors">
+                        <svg class="w-4 h-4 inline ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                        </svg>
+                        ویرایش
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                  <div class="p-4 lg:grid lg:grid-cols-5 lg:gap-4 lg:items-center lg:py-3">
+                    <div class="mb-3 lg:mb-0">
+                      <span class="text-xs text-gray-500 uppercase tracking-wider lg:hidden">نام انبار</span>
+                      <div class="font-medium text-gray-900">انبار جنوب</div>
+                    </div>
+                    <div class="mb-3 lg:mb-0">
+                      <span class="text-xs text-gray-500 uppercase tracking-wider lg:hidden">آدرس</span>
+                      <div class="text-gray-700">شیراز، بلوار آزادی</div>
+                    </div>
+                    <div class="mb-3 lg:mb-0">
+                      <span class="text-xs text-gray-500 uppercase tracking-wider lg:hidden">وضعیت</span>
+                      <div class="flex items-center">
+                        <span class="status-dot status-warning"></span>
+                        <span class="text-yellow-700 font-medium">هشدار</span>
+                      </div>
+                    </div>
+                    <div class="mb-3 lg:mb-0">
+                      <span class="text-xs text-gray-500 uppercase tracking-wider lg:hidden">تعداد کالا</span>
+                      <div class="font-semibold text-gray-900">۳۵۰ کالا</div>
+                    </div>
+                    <div class="lg:text-left">
+                      <button class="w-full lg:w-auto bg-indigo-50 hover:bg-indigo-100 text-indigo-700 px-4 py-2 rounded-lg text-sm font-medium transition-colors">
+                        <svg class="w-4 h-4 inline ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                        </svg>
+                        ویرایش
+                      </button>
+                    </div>
+                  </div>
+                </div>
             </div>
           </section>
           
           <section id="inventory-subtab" class="subtab-content fade-in" style="display:none;">
-            <div class="space-y-4">
-                <div class="hidden md:grid grid-cols-5 gap-4 px-4 py-2 bg-purple-50 text-purple-700 font-semibold rounded-lg text-sm"><div>نام کالا</div><div>کد</div><div>موجودی</div><div>حداقل موجودی</div><div>وضعیت</div></div>
-                <div class="bg-white p-4 rounded-lg shadow-sm border grid grid-cols-2 md:grid-cols-5 gap-4 items-center"><div><span class="md:hidden font-semibold text-gray-600">کالا: </span>کارتن شیر</div><div><span class="md:hidden font-semibold text-gray-600">کد: </span>A1001</div><div><span class="md:hidden font-semibold text-gray-600">موجودی: </span>450</div><div><span class="md:hidden font-semibold text-gray-600">حداقل: </span>300</div><div class="flex items-center col-span-2 md:col-span-1"><span class="status-dot status-good"></span>کافی</div></div>
-                <div class="bg-white p-4 rounded-lg shadow-sm border grid grid-cols-2 md:grid-cols-5 gap-4 items-center"><div><span class="md:hidden font-semibold text-gray-600">کالا: </span>بطری آب</div><div><span class="md:hidden font-semibold text-gray-600">کد: </span>B2202</div><div><span class="md:hidden font-semibold text-gray-600">موجودی: </span>180</div><div><span class="md:hidden font-semibold text-gray-600">حداقل: </span>200</div><div class="flex items-center col-span-2 md:col-span-1"><span class="status-dot status-warning"></span>نزدیک به حداقل</div></div>
+            <div class="space-y-3">
+                <!-- Header only for desktop -->
+                <div class="hidden lg:grid grid-cols-5 gap-4 px-4 py-3 bg-purple-50 text-purple-700 font-semibold rounded-lg text-sm">
+                  <div>نام کالا</div>
+                  <div>کد</div>
+                  <div>موجودی</div>
+                  <div>حداقل موجودی</div>
+                  <div>وضعیت</div>
+                </div>
+                
+                <!-- Inventory items - Mobile First Design -->
+                <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                  <div class="p-4 lg:grid lg:grid-cols-5 lg:gap-4 lg:items-center lg:py-3">
+                    <div class="mb-3 lg:mb-0">
+                      <span class="text-xs text-gray-500 uppercase tracking-wider lg:hidden">نام کالا</span>
+                      <div class="font-medium text-gray-900">کارتن شیر</div>
+                    </div>
+                    <div class="mb-3 lg:mb-0">
+                      <span class="text-xs text-gray-500 uppercase tracking-wider lg:hidden">کد</span>
+                      <div class="text-gray-700 font-mono">A1001</div>
+                    </div>
+                    <div class="mb-3 lg:mb-0">
+                      <span class="text-xs text-gray-500 uppercase tracking-wider lg:hidden">موجودی فعلی</span>
+                      <div class="font-semibold text-gray-900">۴۵۰ عدد</div>
+                    </div>
+                    <div class="mb-3 lg:mb-0">
+                      <span class="text-xs text-gray-500 uppercase tracking-wider lg:hidden">حداقل موجودی</span>
+                      <div class="text-gray-700">۳۰۰ عدد</div>
+                    </div>
+                    <div>
+                      <span class="text-xs text-gray-500 uppercase tracking-wider lg:hidden">وضعیت</span>
+                      <div class="flex items-center mt-1">
+                        <span class="status-dot status-good"></span>
+                        <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-sm font-medium">کافی</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                  <div class="p-4 lg:grid lg:grid-cols-5 lg:gap-4 lg:items-center lg:py-3">
+                    <div class="mb-3 lg:mb-0">
+                      <span class="text-xs text-gray-500 uppercase tracking-wider lg:hidden">نام کالا</span>
+                      <div class="font-medium text-gray-900">بطری آب</div>
+                    </div>
+                    <div class="mb-3 lg:mb-0">
+                      <span class="text-xs text-gray-500 uppercase tracking-wider lg:hidden">کد</span>
+                      <div class="text-gray-700 font-mono">B2202</div>
+                    </div>
+                    <div class="mb-3 lg:mb-0">
+                      <span class="text-xs text-gray-500 uppercase tracking-wider lg:hidden">موجودی فعلی</span>
+                      <div class="font-semibold text-gray-900">۱۸۰ عدد</div>
+                    </div>
+                    <div class="mb-3 lg:mb-0">
+                      <span class="text-xs text-gray-500 uppercase tracking-wider lg:hidden">حداقل موجودی</span>
+                      <div class="text-gray-700">۲۰۰ عدد</div>
+                    </div>
+                    <div>
+                      <span class="text-xs text-gray-500 uppercase tracking-wider lg:hidden">وضعیت</span>
+                      <div class="flex items-center mt-1">
+                        <span class="status-dot status-warning"></span>
+                        <span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full text-sm font-medium">نزدیک به حداقل</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
             </div>
           </section>
           
           <section id="cartons-subtab" class="subtab-content fade-in" style="display:none;">
-             <div class="space-y-4">
-                <div class="hidden md:grid grid-cols-5 gap-4 px-4 py-2 bg-indigo-50 text-indigo-700 font-semibold rounded-lg text-sm"><div>شناسه</div><div>محتویات</div><div>انبار</div><div>وضعیت</div><div>تاریخ ثبت</div></div>
-                <div class="bg-white p-4 rounded-lg shadow-sm border grid grid-cols-2 md:grid-cols-5 gap-4 items-center"><div><span class="md:hidden font-semibold">شناسه: </span>C-10452</div><div><span class="md:hidden font-semibold">محتویات: </span>شیر کم‌چرب</div><div><span class="md:hidden font-semibold">انبار: </span>انبار مرکزی</div><div><span class="px-2 py-1 text-xs rounded-full bg-blue-100 text-blue-800">در انبار</span></div><div><span class="md:hidden font-semibold">تاریخ: </span>۱۴۰۴/۰۵/۰۱</div></div>
-                <div class="bg-white p-4 rounded-lg shadow-sm border grid grid-cols-2 md:grid-cols-5 gap-4 items-center"><div><span class="md:hidden font-semibold">شناسه: </span>C-10453</div><div><span class="md:hidden font-semibold">محتویات: </span>آب معدنی</div><div><span class="md:hidden font-semibold">انبار: </span>انبار جنوب</div><div><span class="px-2 py-1 text-xs rounded-full bg-yellow-100 text-yellow-800">در حال حمل</span></div><div><span class="md:hidden font-semibold">تاریخ: </span>۱۴۰۴/۰۵/۰۴</div></div>
+             <div class="space-y-3">
+                <!-- Header only for desktop -->
+                <div class="hidden lg:grid grid-cols-5 gap-4 px-4 py-3 bg-indigo-50 text-indigo-700 font-semibold rounded-lg text-sm">
+                  <div>شناسه</div>
+                  <div>محتویات</div>
+                  <div>انبار</div>
+                  <div>وضعیت</div>
+                  <div>تاریخ ثبت</div>
+                </div>
+                
+                <!-- Carton items - Mobile First Design -->
+                <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                  <div class="p-4 lg:grid lg:grid-cols-5 lg:gap-4 lg:items-center lg:py-3">
+                    <div class="mb-3 lg:mb-0">
+                      <span class="text-xs text-gray-500 uppercase tracking-wider lg:hidden">شناسه</span>
+                      <div class="font-mono font-medium text-gray-900">C-10452</div>
+                    </div>
+                    <div class="mb-3 lg:mb-0">
+                      <span class="text-xs text-gray-500 uppercase tracking-wider lg:hidden">محتویات</span>
+                      <div class="font-medium text-gray-900">شیر کم‌چرب</div>
+                    </div>
+                    <div class="mb-3 lg:mb-0">
+                      <span class="text-xs text-gray-500 uppercase tracking-wider lg:hidden">انبار</span>
+                      <div class="text-gray-700">انبار مرکزی</div>
+                    </div>
+                    <div class="mb-3 lg:mb-0">
+                      <span class="text-xs text-gray-500 uppercase tracking-wider lg:hidden">وضعیت</span>
+                      <span class="inline-block px-3 py-1 text-sm rounded-full bg-blue-100 text-blue-800 font-medium">در انبار</span>
+                    </div>
+                    <div>
+                      <span class="text-xs text-gray-500 uppercase tracking-wider lg:hidden">تاریخ ثبت</span>
+                      <div class="text-gray-700">۱۴۰۳/۰۸/۰۱</div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                  <div class="p-4 lg:grid lg:grid-cols-5 lg:gap-4 lg:items-center lg:py-3">
+                    <div class="mb-3 lg:mb-0">
+                      <span class="text-xs text-gray-500 uppercase tracking-wider lg:hidden">شناسه</span>
+                      <div class="font-mono font-medium text-gray-900">C-10453</div>
+                    </div>
+                    <div class="mb-3 lg:mb-0">
+                      <span class="text-xs text-gray-500 uppercase tracking-wider lg:hidden">محتویات</span>
+                      <div class="font-medium text-gray-900">آب معدنی</div>
+                    </div>
+                    <div class="mb-3 lg:mb-0">
+                      <span class="text-xs text-gray-500 uppercase tracking-wider lg:hidden">انبار</span>
+                      <div class="text-gray-700">انبار جنوب</div>
+                    </div>
+                    <div class="mb-3 lg:mb-0">
+                      <span class="text-xs text-gray-500 uppercase tracking-wider lg:hidden">وضعیت</span>
+                      <span class="inline-block px-3 py-1 text-sm rounded-full bg-yellow-100 text-yellow-800 font-medium">در حال حمل</span>
+                    </div>
+                    <div>
+                      <span class="text-xs text-gray-500 uppercase tracking-wider lg:hidden">تاریخ ثبت</span>
+                      <div class="text-gray-700">۱۴۰۳/۰۸/۰۴</div>
+                    </div>
+                  </div>
+                </div>
             </div>
           </section>
           
@@ -427,9 +615,9 @@
             <button class="tab-button px-4 py-2 rounded-xl text-sm sm:text-base bg-gray-100 text-gray-600" data-prodsubtab="do-process">ثبت و انجام تولید</button>
           </div>
           <section id="define-process-prodsubtab" class="prodsubtab-content fade-in">
-            <div class="bg-white rounded-2xl shadow-lg p-4 md:p-6 lg:p-8 max-w-4xl mx-auto card-hover border border-gray-100 mb-8">
+            <div class="bg-white rounded-2xl shadow-lg p-4 md:p-6 lg:p-8 card-hover border border-gray-100 mb-8">
               <h2 class="text-xl lg:text-2xl font-semibold text-gray-800 mb-6 border-b pb-4">➕ تعریف فرآیند تولید جدید</h2>
-              <form class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+              <form class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6 mb-6">
                 <div>
                   <label class="block text-base font-medium text-gray-700 mb-2">نام فرآیند</label>
                   <input type="text" class="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-base focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="مثلاً: تولید شیر کم‌چرب">
@@ -438,11 +626,11 @@
                   <label class="block text-base font-medium text-gray-700 mb-2">محصول نهایی</label>
                   <input type="text" class="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-base focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="مثلاً: شیر کم‌چرب">
                 </div>
-                <div class="md:col-span-2">
+                <div class="lg:col-span-2">
                   <label class="block text-base font-medium text-gray-700 mb-2">مواد اولیه مورد نیاز</label>
                   <div id="materials-container" class="space-y-3">
-                    <div class="material-item flex gap-3 items-end">
-                      <div class="flex-1">
+                    <div class="material-item flex flex-col sm:flex-row gap-3 items-end">
+                      <div class="flex-1 w-full">
                         <label class="block text-sm font-medium text-gray-600 mb-1">نام ماده</label>
                         <div class="relative">
                           <input type="text" class="material-name w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-base focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="جستجو و انتخاب ماده..." list="materials-list">
@@ -465,50 +653,66 @@
                           </div>
                         </div>
                       </div>
-                      <div class="flex-1">
+                      <div class="flex-1 w-full">
                         <label class="block text-sm font-medium text-gray-600 mb-1">مقدار</label>
                         <input type="text" class="material-quantity w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-base focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="مثلاً: 100 لیتر">
                       </div>
                     </div>
                   </div>
-                  <button type="button" id="add-material" class="mt-3 bg-blue-100 hover:bg-blue-200 text-blue-700 font-medium py-2 px-4 rounded-lg transition-colors flex items-center gap-2">
+                  <button type="button" id="add-material" class="mt-3 w-full sm:w-auto bg-blue-100 hover:bg-blue-200 text-blue-700 font-medium py-3 px-4 rounded-lg transition-colors flex items-center justify-center gap-2">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
                     </svg>
                     افزودن ماده جدید
                   </button>
                 </div>  
-                <div class="md:col-span-2 flex justify-end">
-                  <button type="button" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg transition-all">ذخیره فرآیند</button>
+                <div class="lg:col-span-2 flex justify-center lg:justify-end">
+                  <button type="button" class="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition-all">ذخیره فرآیند</button>
                 </div>
               </form>
               <h3 class="text-lg font-semibold text-gray-700 mb-4">لیست فرآیندهای تعریف‌شده</h3>
-              <div class="overflow-x-auto">
-                <table class="min-w-full bg-white rounded-lg border">
-                  <thead>
-                    <tr class="bg-gray-50 text-gray-700 text-sm">
-                      <th class="py-2 px-4">نام فرآیند</th>
-                      <th class="py-2 px-4">محصول نهایی</th>
-                      <th class="py-2 px-4">مواد اولیه</th>
-                      <th class="py-2 px-4">عملیات</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td class="py-2 px-4">تولید شیر کم‌چرب</td>
-                      <td class="py-2 px-4">شیر کم‌چرب</td>
-                      <td class="py-2 px-4">شیر خام - 100 لیتر، بطری - 100 عدد</td>
-                      <td class="py-2 px-4"><button class="text-indigo-600 hover:underline">ویرایش</button></td>
-                    </tr>
-                  </tbody>
-                </table>
+              <!-- Mobile First Table -->
+              <div class="space-y-3">
+                <!-- Header only for desktop -->
+                <div class="hidden lg:grid grid-cols-4 gap-4 px-4 py-3 bg-gray-50 text-gray-700 font-semibold rounded-lg text-sm">
+                  <div>نام فرآیند</div>
+                  <div>محصول نهایی</div>
+                  <div>مواد اولیه</div>
+                  <div class="text-center">عملیات</div>
+                </div>
+                
+                <!-- Process items - Mobile First Design -->
+                <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                  <div class="p-4 lg:grid lg:grid-cols-4 lg:gap-4 lg:items-center lg:py-3">
+                    <div class="mb-3 lg:mb-0">
+                      <span class="text-xs text-gray-500 uppercase tracking-wider lg:hidden">نام فرآیند</span>
+                      <div class="font-medium text-gray-900">تولید شیر کم‌چرب</div>
+                    </div>
+                    <div class="mb-3 lg:mb-0">
+                      <span class="text-xs text-gray-500 uppercase tracking-wider lg:hidden">محصول نهایی</span>
+                      <div class="text-gray-700">شیر کم‌چرب</div>
+                    </div>
+                    <div class="mb-3 lg:mb-0">
+                      <span class="text-xs text-gray-500 uppercase tracking-wider lg:hidden">مواد اولیه</span>
+                      <div class="text-gray-700 text-sm">شیر خام - ۱۰۰ لیتر، بطری - ۱۰۰ عدد</div>
+                    </div>
+                    <div class="lg:text-center">
+                      <button class="w-full lg:w-auto bg-indigo-50 hover:bg-indigo-100 text-indigo-700 px-4 py-2 rounded-lg text-sm font-medium transition-colors">
+                        <svg class="w-4 h-4 inline ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                        </svg>
+                        ویرایش
+                      </button>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </section>
           <section id="do-process-prodsubtab" class="prodsubtab-content fade-in" style="display:none;">
-            <div class="bg-white rounded-2xl shadow-lg p-4 md:p-6 lg:p-8 max-w-4xl mx-auto card-hover border border-gray-100">
+            <div class="bg-white rounded-2xl shadow-lg p-4 md:p-6 lg:p-8 card-hover border border-gray-100">
               <h2 class="text-xl lg:text-2xl font-semibold text-gray-800 mb-6 border-b pb-4">📝 ثبت و انجام فرآیند تولید</h2>
-              <form class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+              <form class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6 mb-8">
                 <div>
                   <label class="block text-base font-medium text-gray-700 mb-2">انتخاب فرآیند</label>
                   <select class="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-base focus:outline-none focus:ring-2 focus:ring-blue-500">
